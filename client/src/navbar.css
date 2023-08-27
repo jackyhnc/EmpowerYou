@@ -1,0 +1,40 @@
+nav {
+    height:70px;
+
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    background: #ffdfdf;
+    z-index: 100;
+
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+
+    box-sizing: border-box;
+    padding:0 30px 0 30px;
+}
+
+.nav__logo {
+    height:50px;
+
+}
+
+.nav__buttons-container{
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    font-weight: 600;
+    color:#292E5A;
+
+    margin-right:30px;
+}
+.nav__buttons{
+    padding:5px 15px 5px 15px;
+    border-radius: 25px;
+}
+.nav__buttons:hover{
+    background-color: #f19797ab;
+}
