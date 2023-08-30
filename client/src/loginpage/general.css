@@ -2,18 +2,16 @@
 
 body {
     margin:0;
-    
-    
+    position:relative;
+
     font-family: 'Inter', sans-serif;
     font-size:16px;
-
-    background-color: #ffd1d2;
-
+    color: #F5BBBD;
+    font-weight: 400;
 
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    
 }
 
 img{

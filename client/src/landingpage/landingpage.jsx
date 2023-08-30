@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './general.css'
-import './app.css'
+import './landingpage.css'
 
 import Navbar from './navbar.jsx'
 
@@ -74,7 +74,11 @@ function App() {
             </div>
 
             <footer>
-
+                <div>EmpowerYou © 2023</div>
+                <div>Privacy</div>
+                <div>Terms</div>
+                <div>Status</div>
+                <div>Cookies</div>
             </footer>
         </div>
 

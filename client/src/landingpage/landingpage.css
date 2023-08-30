@@ -338,4 +338,14 @@
 footer {
     height:10vh;
     background-color: rgb(41, 41, 41);
+
+    color:white;
+    font-size: 14px;
+
+    display: flex;
+    align-items: center;
+    gap:30px;
+
+    box-sizing: border-box;
+    padding-left:30px;
 }
