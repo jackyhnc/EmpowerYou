@@ -48,6 +48,7 @@
     transition: 0.2s ease;
 
     cursor: pointer;
+    text-decoration: none;
 
 
 }
@@ -200,7 +201,6 @@
     border-radius: 20px;
     transition: 0.2s ease;
 
-    cursor: pointer;
 }
 .third-section__icons-text-container:hover {
     transform: scale(1.05);

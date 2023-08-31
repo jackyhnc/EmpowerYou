@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
 import './navbar.css'
 
+import { Outlet, Link } from "react-router-dom";
+
+
 export default function Navbar() {
     const [navShadow, setNavShadow] = useState(false)
     const handleScroll = () => {
@@ -25,13 +28,13 @@ export default function Navbar() {
     return (
         <nav>
             <div id="nav-shadow-id" className={navShadow ? `nav-shadow-true` : "nav-shadow-false"}></div>
-            <img className="nav__logo" src="../empoweryoulogo.png"></img>
+            <img className="nav__logo" src="../empoweryoulogolight.png"></img>
             <div className="nav__buttons-container">
                 <div className="nav__buttons">Support</div>
                 <div className="nav__buttons">About</div>
                 <p>|</p>
-                <div className="nav__buttons">Login</div>
-                <div className="nav__buttons-special">Get Started</div>
+                <Link className="nav__buttons" to={`Login`}>Login</Link>
+                <Link className="nav__buttons-special" to={`Signup`}>Get Started</Link>
 
             </div>
         </nav>

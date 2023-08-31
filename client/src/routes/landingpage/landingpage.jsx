@@ -3,8 +3,9 @@ import './general.css'
 import './landingpage.css'
 
 import Navbar from './navbar.jsx'
+import { Outlet, Link } from "react-router-dom";
 
-function App() {
+export default function Landing() {
   return (
     <>
         <Navbar/>
@@ -13,7 +14,8 @@ function App() {
             <div className="first-section__main">
                 <div className="first-section__title">Igniting Change Through Education and Equality</div>
                 <div className="first-section__text">EmpowerYou is more than just a learning hub; it's a transformative platform dedicated to fostering gender equality and empowering women worldwide.</div>
-                <div className="first-section__button">Learn More</div>
+                <Link className="first-section__button" to={`Signup`}>Learn More</Link>
+
             </div>
         </div>
         <div className="sec-section">
@@ -69,8 +71,7 @@ function App() {
             </div>
             <div className="fifth-section">
                 <div className="fifth-section__title">Make a Difference Today</div>
-                <div className="first-section__button">Join the Movement</div>
-
+                <Link className="first-section__button" to={`Signup`}>Join the Movement</Link>
             </div>
 
             <footer>
@@ -85,5 +86,3 @@ function App() {
     </>
   )
 }
-
-export default App

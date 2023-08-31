@@ -2,16 +2,20 @@
 
 body {
     margin:0;
-    position:relative;
-
+    
+    
     font-family: 'Inter', sans-serif;
-    font-size:16px;
-    color: #F5BBBD;
-    font-weight: 400;
+    font-size:18px;
+
+    background-color: #ffd1d2;
+
 
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
+    
+    
 }
 
 img{
