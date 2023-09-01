@@ -1,5 +1,5 @@
 import './signuppage.css'
-import './general.css'
+import '../general.css'
 import { useRef, useState, useEffect } from 'react'
 import { UserAuth } from '../../contexts/AuthContext'
 import { Outlet, Link } from "react-router-dom";
@@ -42,11 +42,11 @@ export default function Signup() {
 
     return(
         <>
-            <div className="left-side">
-                <Link to={`/`}><img className='logo' src='empoweryoulogodark.png'></img></Link>
-                <div className="left-side__text-container">
-                    <div className="left-side__text-1">We are...</div>
-                    <div className="left-side__text-2">
+            <div className="signup__left-side">
+                <Link to={`/`}><img className='signup__logo' src='empoweryoulogodark.png'></img></Link>
+                <div className="signup__left-side__text-container">
+                    <div className="signup__left-side__text-1">We are...</div>
+                    <div className="signup__left-side__text-2">
                         Challenging Norms
                         <br/>
                         Breaking Barriers
@@ -67,11 +67,11 @@ export default function Signup() {
                     </div>
                 </div>
             </div>
-                <div className="right-side">
-                    <div className="login-title">Welcome to EmpowerYou! </div>
-                    <div className="login-title-2">Join the movement for free </div>
+                <div className="signup__right-side">
+                    <div className="signup__login-title">Welcome to EmpowerYou </div>
+                    <div className="signup__login-title-2">Join the movement for free </div>
                     <form onSubmit={handleSubmit}>
-                        <input className="email-box" type='text' placeholder='email'
+                        <input className="signup__email-box" type='text' placeholder='email'
                         id="email"
                         ref={emailRef}
                         autoComplete="off"
@@ -79,20 +79,20 @@ export default function Signup() {
                         value={email}
                         required
                         />
-                        <input className="password-box" type='text' placeholder='password'
+                        <input className="signup__password-box" type='text' placeholder='password'
                         id="password"
                         autoComplete="off"
                         onChange={(e) => setPwd(e.target.value)}
                         value={pwd}
                         required
                         />
-                        <button className="continue-button">Continue</button>
+                        <button className="signup__continue-button">Continue</button>
                         <div className='err-msg'>{errMsg}</div>
                     </form>
 
-                <div className="sign-up-container"> 
-                    <div className="sign-up-text">Have an account?</div>
-                    <Link className="sign-up-button" to={'/login'}>Log in</Link>
+                <div className="signup__sign-up-container"> 
+                    <div className="signup__sign-up-text">Have an account?</div>
+                    <Link className="signup__sign-up-button" to={'/login'}>Log in</Link>
                 </div>  
             </div>
         </>

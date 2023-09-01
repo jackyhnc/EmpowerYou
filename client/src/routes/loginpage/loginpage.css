@@ -1,4 +1,4 @@
-.left-side{
+.login__left-side{
     width:60%;
     height:100vh;
     background: #292E5A;
@@ -12,7 +12,7 @@
     overflow: hidden;
 }
 
-.logo {
+.login__logo {
     height:50px;
     cursor: pointer;
 
@@ -27,13 +27,13 @@
     padding-top: 5px;
 }
 
-.left-side__text-container {
+.login__left-side__text-container {
     margin-left:80px;
     transform: translate(0,10%);
 
 }
 
-.left-side__text-1 {
+.login__left-side__text-1 {
     color: #F5BBBD;
     font-family: Inter;
     font-size: 30px;
@@ -44,7 +44,7 @@
     margin-bottom: 20px;
 }
 
-.left-side__text-2 {
+.login__left-side__text-2 {
     color: #C88BC9;
     font-family: Inter;
     font-size: 64px;
@@ -57,7 +57,7 @@
 
 
 
-.right-side{
+.login__right-side{
     width:40%;
     height:100vh;
     background: #00013D;
@@ -74,14 +74,15 @@
 
 }
 
-.login-title {
+.login__login-title {
     font-size: 30px;
     margin-bottom:60px;
 
     font-weight: 500;
+    color: #eecbcc;
 }
 
-.email-box, .password-box{
+.login__email-box, .login__password-box{
     background-color: white;
     width:35%;
     height:40px;
@@ -100,7 +101,7 @@
 
 }
 
-.continue-button {
+.login__continue-button {
     width:30%;
     height:40px;
     border-radius: 10px;
@@ -117,19 +118,20 @@
 
     margin:10px 0px 100px 0px;
 }
-.continue-button:hover{
+.login__continue-button:hover{
     background: #eeabad;
 }
-.continue-button:active{
+.login__continue-button:active{
     background: #d8898c;
 }
 
-.sign-up-container{
+.login__sign-up-container{
     display:flex;
     gap:10px;
+    color: #eecbcc;
 }
 
-.sign-up-button{
+.login__sign-up-button{
     cursor:pointer;
     font-weight: 600;
     color:#e4b7b9;

@@ -1,31 +1,32 @@
-.first-section{
+.landing__first-section{
     display: flex;
     align-items: center;
 
     height:90vh;
     width:100%;
+    background-color: #ffd1d2;
 
     position:relative;
     overflow: hidden
 }
 
-.first-section__main{
+.landing__first-section__main{
     transform: translate(0,10%);
     margin-left:8vw;
     margin-right:8vw;
     max-width: 700px;
 }
 
-.first-section__title{
+.landing__first-section__title{
     font-size:50px;
     font-weight:700;
-    color: #292E5A;
+    color:#f34d84;
     display:inline-block;
 
     margin-bottom:30px;
 }
 
-.first-section__text{
+.landing__first-section__text{
     font-weight:400;
     font-size:20px;
     color: #292E5A;
@@ -35,7 +36,7 @@
     margin-bottom:50px;
 }
 
-.first-section__button{
+.landing__first-section__button{
     font-weight:500;
     font-size:20px;
     color:white;
@@ -43,6 +44,7 @@
     padding:10px 15px 10px 15px;
     border-radius:15px;
     background: #e7477d;
+    z-index: 100;
 
     display:inline-block;
     transition: 0.2s ease;
@@ -52,14 +54,14 @@
 
 
 }
-.first-section__button:hover{
+.landing__first-section__button:hover{
     background: #e6306d;
 }
-.first-section__button:active{
+.landing__first-section__button:active{
     background: #d31051;
 }
 
-.first-section__graphic{
+.landing__first-section__graphic{
     position:absolute;
     right:-50px;
     top:230px;
@@ -79,7 +81,7 @@
 
 
 
-.sec-section{
+.landing__sec-section{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -91,7 +93,7 @@
     overflow: hidden
 }
 
-.sec-section__left{
+.landing__sec-section__left{
     position: absolute;
     left:0;
     width:55%;
@@ -103,13 +105,13 @@
     justify-content: center;
 }
 
-.sec-section__graphic{
+.landing__sec-section__graphic{
     width:100%;
     transform: translate(0,5%);
     mix-blend-mode: overlay;    
 }
 
-.sec-section__right{
+.landing__sec-section__right{
     position: absolute;
     right:0;
     width:45%;
@@ -121,12 +123,12 @@
     justify-content: center;
 }
 
-.sec-section__main{
+.landing__sec-section__main{
     width:700px;
     margin:0px 8vw 0px 8vw;
 }
 
-.sec-section__title{
+.landing__sec-section__title{
     font-size:40px;
     font-weight:700;
     color: #F5BBBD;
@@ -134,7 +136,7 @@
     margin-bottom:30px;
 }
 
-.sec-section__text{
+.landing__sec-section__text{
     font-weight:400;
     font-size:20px;
     color:white;
@@ -144,14 +146,14 @@
 
 
 
-.third-fourth-section-container{
+.landing__third-fourth-section-container{
     display:flex;
     flex-direction: column;
 
 }
 
 
-.third-section{
+.landing__third-section{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -160,10 +162,11 @@
     height:90vh;
     width:100%;
 
-    overflow: hidden
+    overflow: hidden;
+    background-color: #ffd1d2;
 }
 
-.third-section__title{
+.landing__third-section__title{
     font-size:50px;
     font-weight:700;
     color: #292E5A;
@@ -171,7 +174,7 @@
     margin-bottom:30px;
 }
 
-.third-section__text{
+.landing__third-section__text{
     font-weight:500;
     font-size:20px;
     color: #292E5A;
@@ -182,12 +185,12 @@
     margin-bottom:90px;
 }
 
-.third-section__graphics-container {
+.landing__third-section__graphics-container {
     display: flex;
     gap:150px;
 }
 
-.third-section__icons-text-container {
+.landing__third-section__icons-text-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -202,21 +205,21 @@
     transition: 0.2s ease;
 
 }
-.third-section__icons-text-container:hover {
+.landing__third-section__icons-text-container:hover {
     transform: scale(1.05);
     box-shadow: 0px 4px 9px 0px rgba(0, 59, 107, 0.116);
 }
 
-.third-section__icon {
+.landing__third-section__icon {
     width:80px;
     margin-bottom: 10px;
     transition: 0.2s ease;
 }
-.third-section__icons-text-container:hover .third-section__icon{
+.landing__third-section__icons-text-container:hover .landing__third-section__icon{
     transform: scale(1.05);
 }
 
-.third-third-section__icons-text-container__text {
+.landing__third-third-section__icons-text-container__text {
     font-weight:500;
     font-size:18px;
     line-height: 1.3; 
@@ -224,12 +227,12 @@
     transition: 0.2s ease;
 
 }
-.third-section__icons-text-container:hover .third-third-section__icons-text-container__text{
+.landing__third-section__icons-text-container:hover .landing__third-third-section__icons-text-container__text{
     transform: scale(1.05);
 }
 
 
-.third-section__graphic{
+.landing__third-section__graphic{
     position:absolute;
     right:-50px;
     top:230px;
@@ -247,19 +250,20 @@
 
 
 
-.fourth-section{
+.landing__fourth-section{
     display: flex;
     justify-content: center;
     align-items: center;
 
     height:90vh;
     width:100%;
+    background-color: #ffd1d2;
 
     position:relative;
     overflow: hidden;
 }
 
-.fourth-section__left{
+.landing__fourth-section__left{
     position: absolute;
     left:0;
     width:50%;
@@ -274,13 +278,13 @@
     overflow: hidden;
 }
 
-.fourth-section__graphic{
+.landing__fourth-section__graphic{
     width:100%;
     
     mix-blend-mode: overlay;    
 }
 
-.fourth-section__right{
+.landing__fourth-section__right{
     position: absolute;
     right:0;
     width:50%;
@@ -291,12 +295,12 @@
     justify-content: center;
 }
 
-.fourth-section__main{
+.landing__fourth-section__main{
     width:700px;
     margin:0px 8vw 0px 8vw;
 }
 
-.fourth-section__title{
+.landing__fourth-section__title{
     font-size:40px;
     font-weight:700;
     color: #292E5A;
@@ -304,7 +308,7 @@
     margin-bottom:30px;
 }
 
-.fourth-section__text{
+.landing__fourth-section__text{
     font-weight:500;
     font-size:20px;
     color: #292E5A;
@@ -313,9 +317,10 @@
 
 
 
-.fifth-section{
+.landing__fifth-section{
     height:50vh;
     width:100%;
+    position:relative;
 
     display:flex;
     align-items: center;
@@ -323,19 +328,24 @@
     flex-direction: column;
 
     background-color: #ffecec;
+    overflow: hidden;
+
+    background-size: contain;
 }
 
-.fifth-section__title {
+
+.landing__fifth-section__title {
     font-size:40px;
     font-weight:700;
     color: #292E5A;
 
     margin-bottom:30px;
+    z-index: 100;
 }
 
 
 
-footer {
+.landing__third-fourth-section-container footer {
     height:10vh;
     background-color: rgb(41, 41, 41);
 

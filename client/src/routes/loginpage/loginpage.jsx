@@ -1,17 +1,17 @@
 
-import login from './loginpage.css?inline';
-import './general.css'
+import './loginpage.css';
+import '../general.css'
 import { Outlet, Link } from "react-router-dom";
 
 
 export default function Login() {
     return(
         <>
-            <div className={login['left-side']}>
-                <Link to={`/`}><img className={login.logo} src='empoweryoulogodark.png'></img></Link>
-                <div className={login.left-side__text-container}>
-                    <div className={login.left-side__text-1}>We are...</div>
-                    <div className={login.left-side__text-2}>
+            <div className="login__left-side">
+                <Link to={`/`}><img className='login__logo' src='empoweryoulogodark.png'></img></Link>
+                <div className="login__left-side__text-container">
+                    <div className="login__left-side__text-1">We are...</div>
+                    <div className="login__left-side__text-2">
                         Challenging Norms
                         <br/>
                         Breaking Barriers
@@ -33,15 +33,15 @@ export default function Login() {
                 </div>
             </div>
 
-            <div className={login.right-side}>
-                <div className={login.login-title}>Login </div>
-                <input className={login.email-box} type='text' placeholder='email'></input>
-                <input className={login.password-box} type='text' placeholder='password' ></input>
-                <div className={login.continue-button}>Continue</div>
+            <div className="login__right-side">
+                <div className="login__login-title">Login </div>
+                <input className="login__email-box" type='text' placeholder='email'></input>
+                <input className="login__password-box" type='text' placeholder='password' ></input>
+                <div className="login__continue-button">Continue</div>
 
-                <div className={login.sign-up-container}> 
-                    <div className={login.sign-up-text}>Don't have an account?</div>
-                    <Link className={login.sign-up-button} to={'/signup'}>Sign up</Link>
+                <div className="login__sign-up-container"> 
+                    <div className="login__sign-up-text">Don't have an account?</div>
+                    <Link className="login__sign-up-button" to={'/signup'}>Sign up</Link>
 
                 </div>
 

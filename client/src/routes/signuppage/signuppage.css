@@ -1,4 +1,4 @@
-.left-side{
+.signup__left-side{
     width:60%;
     height:100vh;
     background: #292E5A;
@@ -12,7 +12,7 @@
     overflow: hidden;
 }
 
-.logo {
+.signup__logo {
     height:50px;
     cursor: pointer;
 
@@ -27,13 +27,13 @@
     padding-top: 5px;
 }
 
-.left-side__text-container {
+.signup__left-side__text-container {
     margin-left:80px;
     transform: translate(0,10%);
 
 }
 
-.left-side__text-1 {
+.signup__left-side__text-1 {
     color: #F5BBBD;
     font-family: Inter;
     font-size: 30px;
@@ -44,7 +44,7 @@
     margin-bottom: 20px;
 }
 
-.left-side__text-2 {
+.signup__left-side__text-2 {
     color: #C88BC9;
     font-family: Inter;
     font-size: 64px;
@@ -57,7 +57,7 @@
 
 
 
-.right-side{
+.signup__right-side{
     width:40%;
     height:100vh;
     background: #000124;
@@ -74,21 +74,23 @@
 
 }
 
-.login-title {
+.signup__login-title {
     font-size: 30px;
     margin-bottom:20px;
+    color:#f7c7c9;
 
     font-weight: 400;
 }
 
-.login-title-2 {
-    font-size:40px;
+.signup__login-title-2 {
+    font-size:34px;
     margin-bottom:60px;
 
     font-weight: 600;
+    color: #eecbcc;
 }
 
-form {
+.signup__right-side form {
     width:100%;
     display: flex;
     flex-direction: column;
@@ -97,7 +99,7 @@ form {
 }
 
 
-.email-box, .password-box{
+.signup__email-box, .signup__password-box{
     background-color: white;
     width:35%;
     height:44px;
@@ -118,11 +120,11 @@ form {
 
 }
 
-.continue-button {
+.signup__continue-button {
     width:35%;
     height:44px;
     border-radius: 10px;
-    background: #c7c7c7;
+    background: #F5BBBD;
     color: #00013E;
     font-weight: 600;
 
@@ -135,25 +137,27 @@ form {
 
     margin:10px 0px 100px 0px;
 }
-.continue-button:hover{
+.signup__continue-button:hover{
     background: #eeabad;
 }
-.continue-button:active{
+.signup__continue-button:active{
     background: #d8898c;
 }
 
-.sign-up-container{
+.signup__sign-up-container{
     display:flex;
     gap:10px;
+    color: #eecbcc;
+
 }
 
-.sign-up-button{
+.signup__sign-up-button{
     cursor:pointer;
     font-weight: 600;
     color:#e4b7b9;
 }
 
-.err-msg {
+.signup__err-msg {
     position:absolute;
     bottom:30%;
 

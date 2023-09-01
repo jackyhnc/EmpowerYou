@@ -1,0 +1,95 @@
+.home__nav {
+    position:fixed;
+    left:0;
+    top:0;
+
+    display:flex;
+    flex-direction: column;
+
+    background-color: #ffd1d2;
+    width:220px;
+    height:100vh;
+
+    border-top-right-radius: 10px;
+
+    padding:0 16px 0 16px;
+
+    font-weight:600;
+
+    z-index:1000;
+}
+
+.home__nav__profile-container {
+    background-color: rgb(255, 255, 254);
+
+    box-sizing: border-box;
+    padding:8px 0 8px 0;
+    margin-top:32px;
+
+    border-radius: 10px;
+
+    display:flex;
+    align-items:center;
+}
+
+.home__nav__profile-container__profile-picture-container {
+    padding:0 16px 0 16px;
+
+    display:flex;
+    align-items:center;
+}
+.home__nav__profile-container__profile-picture {
+    width:44px;
+    height:44px;
+    border-radius:50px;
+
+    display:inline;
+}
+
+.home__nav__profile-container__email {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+
+.home__nav__menu {
+    margin-top:50px;
+}
+
+.home__nav__menu-button, .home__nav__menu-button-active {
+    display:flex;
+    align-items:center;
+    cursor: pointer;
+
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+.home__nav__menu-button-active {
+    background-color: white;
+}
+.home__nav__menu-button:hover {
+    background-color: rgba(255, 255, 255, 0.589);
+}
+
+.home__nav__menu-button__icon {
+    width:20px;
+    padding: 16px;
+}
+
+
+
+.home__nav__bottom-menu {
+    margin-top:0 auto;
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content:end;
+
+    margin-bottom:16px;
+}
+
+.home__nav__logo {
+    margin-bottom: 10px;
+    mix-blend-mode: color-dodge  ;
+}
