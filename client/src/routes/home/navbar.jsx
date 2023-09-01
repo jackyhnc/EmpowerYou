@@ -15,26 +15,26 @@ export default function home__Navbar() {
         </div>
         <div className="home__nav__menu">
             <div className="home__nav__menu-button-active">
-                <img className="home__nav__menu-button__icon" src="../public/dashboard icon.svg"></img>
+                <img className="home__nav__menu-button__icon" src="../dashboard icon.svg"></img>
                 <div className="home__nav__menu-button__title">Dashboard</div>
             </div>
             <div className="home__nav__menu-button">
-                <img className="home__nav__menu-button__icon" src="../public/dashboard icon.svg"></img>
+                <img className="home__nav__menu-button__icon" src="../dashboard icon.svg"></img>
                 <div className="home__nav__menu-button__title">Example</div>
             </div>
             <div className="home__nav__menu-button">
-                <img className="home__nav__menu-button__icon" src="../public/dashboard icon.svg"></img>
+                <img className="home__nav__menu-button__icon" src="../dashboard icon.svg"></img>
                 <div className="home__nav__menu-button__title">Example</div>
             </div>
         </div>
         <div className="home__nav__bottom-menu">
-            <img className="home__nav__logo" src="../public/empoweryoulogolight.png"></img>
+            <img className="home__nav__logo" src="../empoweryoulogolight.png"></img>
             <div className="home__nav__menu-button">
-                <img className="home__nav__menu-button__icon" src="../public/settings icon.svg"></img>
+                <img className="home__nav__menu-button__icon" src="../settings icon.svg"></img>
                 <div className="home__nav__menu-button__title">Settings</div>
             </div>
             <div className="home__nav__menu-button">
-                <img className="home__nav__menu-button__icon" src="../public/logout icon.svg"></img>
+                <img className="home__nav__menu-button__icon" src="../logout icon.svg"></img>
                 <div className="home__nav__menu-button__title">Log out</div>
             </div>
         </div>

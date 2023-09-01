@@ -87,7 +87,7 @@ export default function Signup() {
                         required
                         />
                         <button className="signup__continue-button">Continue</button>
-                        <div className='err-msg'>{errMsg}</div>
+                        <div className="signup__err-msg">{errMsg}</div>
                     </form>
 
                 <div className="signup__sign-up-container"> 
