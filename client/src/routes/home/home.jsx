@@ -73,7 +73,8 @@ export default function Home() {
             username: postData.username,
             title: postData.title,
             description: postData.description,
-            media: postData.media
+            media: postData.media,
+            likes:[]
         })
 
         setShowAddPost(false)
@@ -85,23 +86,40 @@ export default function Home() {
         })
     }
 
-
-
     //read posts
     useEffect(() => {
-        const q = query(collection(db, 'posts'))
+        const q = query(collection(db, 'posts'), orderBy("date", "desc"))
 
         const unsubscribe = onSnapshot(q, (querySnapshot) => {
             let postsArr = []
             querySnapshot.forEach((doc) => {
                 postsArr.push({...doc.data(), id: doc.id})
             })
-            setPosts(postsArr.reverse())
+            setPosts(postsArr)
         })
         return () => unsubscribe
     },[])
 
     //update posts
+    const updateLikes = async (post) => {
+        const newLikesCount = post.likes.length + 1
+        try {
+            if (!post.likes.includes(user.uid)) {
+                await updateDoc(doc(db, 'posts', post.id), {
+                    likes: [...post.likes, user.uid]
+                })
+            } else {
+                await updateDoc(doc(db, 'posts', post.id), {
+                    likes: post.likes.filter(selectedUser => {
+                        selectedUser !== user.id
+                    })
+                })
+            }
+        } catch(err) {
+            console.error(err)
+        }
+
+    }
 
     return (
         <div className='home__body'>
@@ -236,7 +254,7 @@ export default function Home() {
                                 }
                                 {posts.map(post => {
                                     return (
-                                        <div className="home__post" key={UID}>
+                                        <div className="home__post" key={post.date}>
                                         <div className="home__post-profile">
                                             <img className="home__post-profile-img" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"></img>
                                             <div className="home__post-username">{post.username}</div>
@@ -247,12 +265,9 @@ export default function Home() {
                                             <img className="home__post-img" src={post.media}></img>
                                         </div>
                                         <div className="home__post-buttons-container">
-                                            <div className="home__post-button">{post.likes} {post.likes > 1 ? "Likes": post.likes > 0 ? "1 Like": "0 Likes"}</div>
+                                            <div className="home__post-button" onClick={() => {updateLikes(post)}}>{post.likes.length} {post.likes.length > 1 ? "Likes": post.likes.length > 0 ? "Like": "Likes"}</div>
                                             <div className="home__post-button">Comment</div>
                                             <div className="home__post-button">Share</div>
-                                            <div className="home__post-button">🎉 0</div>
-                                            <div className="home__post-button">💓 0 </div>
-                                            <div className="home__post-button">🤗 0</div>
                                         </div>
                                         <div className="home__post-comments">{post.comment ? post.comment.length : "0"} comments</div>
                                         </div>
