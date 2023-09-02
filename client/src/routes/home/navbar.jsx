@@ -1,7 +1,21 @@
 import "../general.css"
 import "./navbar.css"
+import { useNavigate } from "react-router-dom"
 
-export default function home__Navbar() {
+export default function home__Navbar(props) {
+    const {scrollToNetworkSection,scrollToHotlinesSection,user,logout} = props
+    const navigate = useNavigate()
+
+    const handleLogout = async () => {
+        try {
+            await logout()
+            navigate("/")
+            console.log("logged out!")
+        } catch(e) {
+            console.log(e.message)
+        }
+    }
+
   return (
     <div className="home__nav">
         <div className="home__nav__profile-container">
@@ -9,8 +23,8 @@ export default function home__Navbar() {
                 <img className="home__nav__profile-container__profile-picture" src="https://i.redd.it/v0caqchbtn741.jpg"></img>
             </div>
             <div className="home__nav__profile-container__name-email-container">
-                <div className="home__nav__profile-container__name">Joe Smith</div>
-                <div className="home__nav__profile-container__email">example@gmail.com</div>
+                <div className="home__nav__profile-container__name">Hey,</div>
+                <div className="home__nav__profile-container__email">  {user && user.email}!</div>
             </div>
         </div>
         <div className="home__nav__menu">
@@ -19,12 +33,12 @@ export default function home__Navbar() {
                 <div className="home__nav__menu-button__title">Dashboard</div>
             </div>
             <div className="home__nav__menu-button">
-                <img className="home__nav__menu-button__icon" src="../dashboard icon.svg"></img>
-                <div className="home__nav__menu-button__title">Example</div>
+                <img className="home__nav__menu-button__icon" src="../dashboard icon.svg" onClick={scrollToNetworkSection}></img>
+                <div className="home__nav__menu-button__title">Network</div>
             </div>
             <div className="home__nav__menu-button">
-                <img className="home__nav__menu-button__icon" src="../dashboard icon.svg"></img>
-                <div className="home__nav__menu-button__title">Example</div>
+                <img className="home__nav__menu-button__icon" src="../dashboard icon.svg" onClick={scrollToHotlinesSection}></img>
+                <div className="home__nav__menu-button__title">Hotlines</div>
             </div>
         </div>
         <div className="home__nav__bottom-menu">
@@ -33,7 +47,7 @@ export default function home__Navbar() {
                 <img className="home__nav__menu-button__icon" src="../settings icon.svg"></img>
                 <div className="home__nav__menu-button__title">Settings</div>
             </div>
-            <div className="home__nav__menu-button">
+            <div className="home__nav__menu-button" onClick={handleLogout}>
                 <img className="home__nav__menu-button__icon" src="../logout icon.svg"></img>
                 <div className="home__nav__menu-button__title">Log out</div>
             </div>

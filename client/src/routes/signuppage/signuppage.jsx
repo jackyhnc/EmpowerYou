@@ -2,18 +2,18 @@ import './signuppage.css'
 import '../general.css'
 import { useRef, useState, useEffect } from 'react'
 import { UserAuth } from '../../contexts/AuthContext'
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 
 const USER_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
 
 export default function Signup() {
-    const emailRef = useRef();
+    const emailRef = useRef()
+    const navigate = useNavigate()
 
     const [email, setEmail] = useState('')
     const [pwd, setPwd] = useState('')
     const [errMsg, setErrMsg] = useState('')
-    const [success, setSuccess] = useState(false)
     const { createUser } = UserAuth()
 
     useEffect(() => {
@@ -35,7 +35,9 @@ export default function Signup() {
 
         try {
             await createUser(email, pwd)
+            navigate('/home')
         } catch (err) {
+            setErrMsg(err.message)
             console.error(err)
         }
     }
@@ -79,7 +81,7 @@ export default function Signup() {
                         value={email}
                         required
                         />
-                        <input className="signup__password-box" type='text' placeholder='password'
+                        <input className="signup__password-box" type='password' placeholder='password'
                         id="password"
                         autoComplete="off"
                         onChange={(e) => setPwd(e.target.value)}

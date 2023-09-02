@@ -37,6 +37,7 @@
 
     display:flex;
     align-items:center;
+    
 }
 .home__nav__profile-container__profile-picture {
     width:44px;
@@ -47,8 +48,14 @@
 }
 
 .home__nav__profile-container__email {
-    font-size: 12px;
-    font-weight: 400;
+    font-size: 14px;
+    font-weight: 500;
+
+    width:130px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
 }
 
 

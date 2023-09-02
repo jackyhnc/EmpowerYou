@@ -1,22 +1,22 @@
-.body {
+.home__body {
     margin-left:252px;
     background-color: #f4f4f6;
 }
 
-.body main{
+.home__body main{
     width:100%;
     height:100%;
     display:flex;
     flex-direction: column;
 
     box-sizing: border-box;
-    padding: 40px 40px 0 40px;
+    padding: 40px 40px 40px 40px;
 
 }
 
 
 
-.courses-section {
+.home__courses-section {
     background-color: #f8dddd;
     border-radius: 20px;
     width:100%;
@@ -28,7 +28,7 @@
     padding:30px;
 }
 
-.courses-section-title {
+.home__courses-section-title {
     font-size: 24px;
     font-weight: 600;
     color:rgb(0, 0, 0);
@@ -37,18 +37,18 @@
 }
 
 
-.courses-container {
+.home__courses-container {
     height:90%;
     display:flex;
     align-items: center;
     gap:30px;
     overflow-x: auto;
 }
-.courses-container::-webkit-scrollbar {
+.home__courses-container::-webkit-scrollbar {
     width:0;
 }
 
-.course {
+.home__course {
     min-width:300px;
     height:95%;
     border-radius: 10px;
@@ -65,18 +65,18 @@
     cursor:pointer;
     
 }
-.course:hover {
+.home__course:hover {
     min-width:310px;
     height:96%;
-    box-shadow: 1px 2px 7px 1px rgba(0, 0, 0, 0.651);
+    box-shadow: 1px 2px 7px 1px rgba(0, 0, 0, 0.51);
 }
 
-.course-title, .course-description {
+.home__course-title, .home__course-description {
     margin-left:20px;
     margin-right:20px;
 }   
 
-.course-title {
+.home__course-title {
     font-size: 24px;
     font-weight: 500;
     color:white;
@@ -86,11 +86,11 @@
     margin-bottom: 4px;
 
 }
-.course:hover .course-title {
+.home__course:hover .home__course-title {
     transform:scale(1.015);
 }
 
-.course-description {
+.home__course-description {
     font-size: 18px;
     font-weight: 400;
     color:white;
@@ -98,17 +98,16 @@
     z-index: 10;
     margin-bottom: 24px;
     transition: 0.2s ease;
-
 }
-.course:hover .course-description {
+.home__course:hover .home__course-description {
     transform:scale(1.015);
 }
 
-.course-img-container {
+.home__course-img-container {
     width:100%;
 
 }
-.course-img-overlay{
+.home__course-img-overlay{
     width:100%;
     height: 100%;
     background-color: rgba(158, 27, 27, 0.26);
@@ -120,7 +119,7 @@
 
 }
 
-.course-img {
+.home__course-img {
     height: 100%;
     width:100%;
 
@@ -133,8 +132,7 @@
 
 
 
-.checkup-networking-hotlines-container {
-    height:2000px;
+.home__checkup-networking-hotlines-container {
     width:100%;
 
     display:grid;
@@ -150,7 +148,7 @@
 
 
 
-.checkup-container {
+.home__checkup-container {
     width: 100%;
     height: 100%;
 
@@ -159,7 +157,7 @@
     justify-content: center;
 }
 
-.checkup {
+.home__checkup {
     grid-area:check;
     background-color: #f8dddd;
     border-radius: 20px;
@@ -179,7 +177,7 @@
 
 }
 
-.checkup-section-title {
+.home__checkup-section-title {
     position:absolute;
     top:30px;
     left:30px;
@@ -189,13 +187,13 @@
 
 }
 
-.checkup-icon {
+.home__checkup-icon {
     width:130px;
     
     margin-bottom: 30px;
 }
 
-.checkup-title {
+.home__checkup-title {
     font-size: 34px;
     font-weight: 600;
     color:#292E5A;
@@ -203,7 +201,7 @@
     margin-bottom: 30px;
 }
 
-.checkup-section-2 {
+.home__checkup-section-2 {
     padding:20px 25px 20px 25px;
     background-color: #fff6f6;
     border-radius: 20px;
@@ -214,13 +212,13 @@
     justify-content: center;
 }
 
-.checkup-text {
+.home__checkup-text {
     font-weight: 500;
 
     margin-bottom: 15px;
 }
 
-.checkup-button {
+.home__checkup-button {
     font-weight:500;
     font-size:24px;
     color:white;
@@ -236,16 +234,16 @@
     cursor: pointer;
     text-decoration: none;
     }
-.checkup-button:hover{
+.home__checkup-button:hover{
     background: #e6306d;
 }
-.checkup-button:active{
+.home__checkup-button:active{
     background: #d31051;
 }
 
 
 
-.hotlines-container {
+.home__hotlines-container {
     grid-area:hotline;
     width: 100%;
     height: 100%;
@@ -255,7 +253,7 @@
     justify-content: center;
 }
 
-.hotlines-section {
+.home__hotlines-section {
     grid-area:hotline;
     background-color: #f8dddd;
     border-radius: 20px;
@@ -266,20 +264,20 @@
     padding:0 30px 30px 30px;
 }
 
-.hotlines-text-title-container {
+.home__hotlines-text-title-container {
     position:sticky;
     top:0;
     padding-top:30px;
 }
 
-.hotlines-title {
+.home__hotlines-title {
     color:rgb(0, 0, 0);
     font-size: 24px;
     font-weight: 600;
     margin-bottom: 30px;
 }
 
-.hotlines-text {
+.home__hotlines-text {
     font-size:20px;
     line-height: 50px;
     font-weight: 500;
@@ -288,39 +286,42 @@
 }
 
 
-.networking-container {
+.home__networking-container {
     grid-area:main;
     width:100%;
     height:100%;
 
 }
 
-.networking-section {
+.home__networking-section {
     border-radius: 20px;
     width:100%;
     height:100%;
 
     box-sizing: border-box;
     padding:30px;
+    padding-bottom: 0px;
+
+
 
 }
 
-.networking-title {
+.home__networking-title {
     font-size: 24px;
     font-weight: 600;
-    
-    margin-bottom: 20px;
+
+    max-width: 100px;
 }
 
-.posts-container {
+.home__posts-container {
     display: flex;
     flex-direction: column;
     gap:40px;
 
-    width:100%;
+    margin-left: 30px;
 }
 
-.post {
+.home__post {
     width:90%;
     background-color: white;
     border-radius: 15px;
@@ -328,11 +329,9 @@
     box-sizing: border-box;
     padding:50px 60px 50px 60px;
     
-    align-self: center;
-
 }
 
-.post-profile {
+.home__post-profile {
     display:flex;
     align-items: center;
     gap:20px;
@@ -340,29 +339,29 @@
     margin-bottom: 20px;
 }
 
-.post-profile-img {
+.home__post-profile-img {
     width:50px;
     height: 50px;
     object-fit: cover;
     border-radius: 50px;
 }
 
-.post-username {
+.home__post-username {
     font-weight: 500;
 }
 
-.post-title {
+.home__post-title {
     font-weight: 600;
     font-size: 30px;
 
     margin-bottom: 20px;
 }
 
-.post-description {
+.home__post-description {
     margin-bottom: 20px;
 }
 
-.post-img-container {
+.home__post-img-container {
     width:100%;
     height: 100%;
 
@@ -371,7 +370,7 @@
     justify-content: center;
     margin-bottom: 20px;
 }
-.post-img {
+.home__post-img {
     width:100%;
     height: 400px;
     object-fit: cover;
@@ -380,16 +379,16 @@
     border-radius: 20px;
 }
 
-.post-time {
+.home__post-time {
     margin-bottom: 20px;
 }
 
-.post-buttons-container {
+.home__post-buttons-container {
     display: flex;
     gap:20px;
 }
 
-.post-button {
+.home__post-button {
     padding:10px;
     font-weight: 600;
 
@@ -402,13 +401,13 @@
 
     cursor: pointer;
 }
-.post-button:hover {
+.home__post-button:hover {
     background-color:#ffc5c5;
 }
-.post-button:active {
+.home__post-button:active {
     background-color:#faa7a7;
 }
 
-.post-comments {
+.home__post-comments {
     font-weight: 500;
 }

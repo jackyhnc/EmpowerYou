@@ -1,10 +1,43 @@
 
 import './loginpage.css';
 import '../general.css'
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
+import { UserAuth } from "../../contexts/AuthContext"
+import {useState, useRef, useEffect} from "react"
+
 
 
 export default function Login() {
+    const {login} = UserAuth()
+    const navigate = useNavigate()
+
+    const emailRef = useRef();
+
+    const [email, setEmail] = useState('')
+    const [pwd, setPwd] = useState('')
+    const [errMsg, setErrMsg] = useState('')
+
+    useEffect(() => {
+        emailRef.current.focus()
+    }, [])
+
+    useEffect(() => {
+        setErrMsg('')
+    }, [email, pwd])
+
+    const handleSubmit = async (e) => {
+        setErrMsg('')
+        e.preventDefault()
+
+        try {
+            await login(email, pwd)
+            navigate('/home')
+        } catch (err) {
+            setErrMsg(err.message)
+            console.error(err)
+        }
+    }
+
     return(
         <>
             <div className="login__left-side">
@@ -35,10 +68,26 @@ export default function Login() {
 
             <div className="login__right-side">
                 <div className="login__login-title">Login </div>
-                <input className="login__email-box" type='text' placeholder='email'></input>
-                <input className="login__password-box" type='text' placeholder='password' ></input>
-                <div className="login__continue-button">Continue</div>
-
+                    <form onSubmit={handleSubmit}>
+                        <input className="login__email-box" type='text' placeholder='email'
+                        id="email"
+                        ref={emailRef}
+                        autoComplete="off"
+                        onChange={(e) => setEmail(e.target.value)}
+                        value={email}
+                        required
+                        />
+                        <input className="login__password-box" type='password' placeholder='password'
+                        id="password"
+                        autoComplete="off"
+                        onChange={(e) => setPwd(e.target.value)}
+                        value={pwd}
+                        required
+                        />
+                        <button className="login__continue-button">Continue</button>
+                        <div className="login__err-msg">{errMsg}</div>
+                    </form>
+                    
                 <div className="login__sign-up-container"> 
                     <div className="login__sign-up-text">Don't have an account?</div>
                     <Link className="login__sign-up-button" to={'/signup'}>Sign up</Link>
