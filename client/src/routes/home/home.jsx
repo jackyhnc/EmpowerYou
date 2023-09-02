@@ -74,7 +74,8 @@ export default function Home() {
             title: postData.title,
             description: postData.description,
             media: postData.media,
-            likes:[]
+            likes:[],
+            comments:{}
         })
 
         setShowAddPost(false)
@@ -118,7 +119,15 @@ export default function Home() {
         } catch(err) {
             console.error(err)
         }
+    }
 
+    const [showCommentsList, setShowCommentsList] = useState([])
+    const showCommentSection= (post) => {
+        if (!showCommentsList.includes(post.id)) {
+            setShowCommentsList([...showCommentsList, post.id])
+        } else {
+            setShowCommentsList(showCommentsList.filter(postIDs => postIDs != post.id))
+        }
     }
 
     return (
@@ -255,21 +264,35 @@ export default function Home() {
                                 {posts.map(post => {
                                     return (
                                         <div className="home__post" key={post.date}>
-                                        <div className="home__post-profile">
-                                            <img className="home__post-profile-img" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"></img>
-                                            <div className="home__post-username">{post.username}</div>
-                                        </div>
-                                        <div className="home__post-title">{post.title}</div>
-                                        <div className="home__post-description">{post.description}</div>
-                                        <div className="home__post-img-container">
-                                            <img className="home__post-img" src={post.media}></img>
-                                        </div>
-                                        <div className="home__post-buttons-container">
-                                            <div className="home__post-button" onClick={() => {updateLikes(post)}}>{post.likes.length} {post.likes.length > 1 ? "Likes": post.likes.length > 0 ? "Like": "Likes"}</div>
-                                            <div className="home__post-button">Comment</div>
-                                            <div className="home__post-button">Share</div>
-                                        </div>
-                                        <div className="home__post-comments">{post.comment ? post.comment.length : "0"} comments</div>
+                                            <div className="home__post-profile">
+                                                <img className="home__post-profile-img" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"></img>
+                                                <div className="home__post-username">{post.username}</div>
+                                            </div>
+                                            <div className="home__post-title">{post.title}</div>
+                                            <div className="home__post-description">{post.description}</div>
+                                            <div className="home__post-img-container">
+                                                <img className="home__post-img" src={post.media}></img>
+                                            </div>
+                                            <div className="home__post-buttons-container">
+                                                <div className="home__post-button" onClick={() => {updateLikes(post)}}>{post.likes.length} {post.likes.length > 1 ? "Likes": post.likes.length > 0 ? "Like": "Likes"}</div>
+                                                <div className="home__post-button">Share</div>
+                                                <div className="home__post-comments" onClick={() => {showCommentSection(post)}}>{Object.keys(post.comments).length ? Object.keys(post.comments).length : "0"} comments</div>
+                                            </div>
+                                            {showCommentsList.includes(post.id) && 
+                                                <div className="home__comments-container">
+                                                    <div className="home__comment-add">Add Comment</div>
+                                                    
+                                                        {Object.keys(post.comments).map(comment => {
+                                                            return (
+                                                                <div className="home__comment-container">
+                                                                    <div className="home__comment-name">{comment}</div>
+                                                                    <div className="home__comment-text">{post.comments[comment]}</div>
+                                                                </div>
+                                                            )
+                                                        })}
+                                                    
+                                                </div>
+                                            }
                                         </div>
                                     )
                                 })}

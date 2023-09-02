@@ -482,4 +482,84 @@
 
 .home__post-comments {
     font-weight: 500;
+    margin-bottom: 20px;
+
+    padding:10px;
+    background-color: rgb(230, 230, 230);
+    border-radius: 15px;
+    display:inline-block;
+
+    cursor: pointer;
+
+    transition:0.2s ease;
+}
+.home__post-comments:hover{
+    background-color: rgb(214, 213, 213);
+}
+.home__post-comments:active{
+    background-color: rgb(185, 185, 185);
+}
+
+
+.home__comments-container {
+    max-height:300px;
+    width:100%;
+
+    border-radius: 10px;
+    background-color: rgb(243, 242, 242);
+
+    
+    box-sizing: border-box;
+    padding:20px;
+
+    overflow-y: scroll;
+
+    display:flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.home__comment-add {
+    padding:10px;
+    font-weight: 600;
+
+    background-color: #ffe3e3;
+    border-radius: 15px;
+
+    transition: 0.2s ease;
+
+    cursor: pointer;
+
+    display:inline-block;
+}
+.home__comment-add:hover {
+    background-color:#ffc5c5;
+}
+.home__comment-add:active {
+    background-color:#faa7a7;
+}
+
+.home__comment-container {
+    width:100%;
+
+    background-color: #ffe7e9;
+
+    border-radius: 10px;
+
+    box-sizing: border-box;
+    padding:20px;
+
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.home__comment-name {
+    font-weight: 600;
+
+}
+
+.home__comment-text {
+    box-sizing: border-box;
+    padding:0 10px 0 10px;
 }
