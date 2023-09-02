@@ -3,7 +3,7 @@ import "./navbar.css"
 import { useNavigate } from "react-router-dom"
 
 export default function home__Navbar(props) {
-    const {scrollToNetworkSection,scrollToHotlinesSection,user,logout} = props
+    const {scrollToNetworkSection,scrollToHotlinesSection,scrollToTopSection,user,logout} = props
     const navigate = useNavigate()
 
     const handleLogout = async () => {
@@ -28,16 +28,16 @@ export default function home__Navbar(props) {
             </div>
         </div>
         <div className="home__nav__menu">
-            <div className="home__nav__menu-button-active">
+            <div className="home__nav__menu-button-active" onClick={scrollToTopSection}>
                 <img className="home__nav__menu-button__icon" src="../dashboard icon.svg"></img>
                 <div className="home__nav__menu-button__title">Dashboard</div>
             </div>
-            <div className="home__nav__menu-button">
-                <img className="home__nav__menu-button__icon" src="../dashboard icon.svg" onClick={scrollToNetworkSection}></img>
+            <div className="home__nav__menu-button" onClick={scrollToNetworkSection}>
+                <img className="home__nav__menu-button__icon" src="../people.svg"></img>
                 <div className="home__nav__menu-button__title">Network</div>
             </div>
-            <div className="home__nav__menu-button">
-                <img className="home__nav__menu-button__icon" src="../dashboard icon.svg" onClick={scrollToHotlinesSection}></img>
+            <div className="home__nav__menu-button" onClick={scrollToHotlinesSection}>
+                <img className="home__nav__menu-button__icon" src="../call.svg"></img>
                 <div className="home__nav__menu-button__title">Hotlines</div>
             </div>
         </div>

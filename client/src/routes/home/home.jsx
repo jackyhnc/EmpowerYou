@@ -1,8 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
 import './home.css'
 import { UserAuth } from '../../contexts/AuthContext'
+import UID from '../generateUID'
 
 import Navbar from './navbar'
+
+import {db} from '../../firebase'
+import {query, collection, onSnapshot, updateDoc, doc, addDoc, orderBy} from 'firebase/firestore'
 
 export default function Home() {
     const {user, logout} = UserAuth()
@@ -40,14 +44,68 @@ export default function Home() {
 
     const hotlinesSection = useRef(null)
     const networkSection = useRef(null)
+    const topSection = useRef(null)
 
     const scrollToHotlinesSection = () => { window.scrollTo({ top: hotlinesSection.current.offsetTop, behavior: 'smooth', }) }
     const scrollToNetworkSection = () => { window.scrollTo({ top: networkSection.current.offsetTop, behavior: 'smooth', }) }
-    
+    const scrollToTopSection = () => { window.scrollTo({ top: 0, behavior: 'smooth', }) }
+
+    //create post
+    const [posts, setPosts] = useState([])
+
+    const [postData, setPostData] = useState({
+        username:"",
+        title:"",
+        description:"",
+        media:""
+    })
+
+    const [showAddPost, setShowAddPost] = useState(false)
+    const handleShowAddPost = () => {
+        setShowAddPost(!showAddPost)
+    }
+
+    const handleAddPost = async (e) => {
+        e.preventDefault(e)
+
+        await addDoc(collection(db, 'posts'), {
+            date: Date.now(),
+            username: postData.username,
+            title: postData.title,
+            description: postData.description,
+            media: postData.media
+        })
+
+        setShowAddPost(false)
+        setPostData({
+            username:"",
+            title:"",
+            description:"",
+            media:""
+        })
+    }
+
+
+
+    //read posts
+    useEffect(() => {
+        const q = query(collection(db, 'posts'))
+
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+            let postsArr = []
+            querySnapshot.forEach((doc) => {
+                postsArr.push({...doc.data(), id: doc.id})
+            })
+            setPosts(postsArr.reverse())
+        })
+        return () => unsubscribe
+    },[])
+
+    //update posts
 
     return (
         <div className='home__body'>
-            <Navbar scrollToHotlinesSection={scrollToHotlinesSection} scrollToNetworkSection={scrollToNetworkSection} user={user} logout={logout} />
+            <Navbar scrollToHotlinesSection={scrollToHotlinesSection} scrollToNetworkSection={scrollToNetworkSection} scrollToTopSection={scrollToTopSection} user={user} logout={logout} />
             <main>
                 <div className="home__courses-section">
                     <div className="home__courses-section-title">Courses</div>
@@ -132,7 +190,74 @@ export default function Home() {
                     <div className="home__networking-container" ref={networkSection}>
                         <div className="home__networking-section">
                             <div className="home__posts-container">
-                                <div className="home__networking-title">Network</div>
+                                <div className="home__networking-title-add-container">
+                                    <div className="home__networking-title">Network</div>
+                                    <div className="home__post-button" onClick={handleShowAddPost} style={{margin:0,position: "absolute", right:0, marginRight:"90px"}}>{showAddPost ? "Delete Post" : "Add Post"}</div>
+                                    
+                                </div>
+                                {showAddPost && 
+                                    <form className="home__add-post-container" onSubmit={handleAddPost} style={{paddingTop:"30px"}}>
+                                        <div className="home__hotlines-text">Your post</div>
+                                        <textarea className="home__input-box"  placeholder='Username or email'
+                                        id="username"
+                                        autoComplete="off"
+                                        onChange={(e) => setPostData({...postData, username:e.target.value})}
+                                        value={postData.username}
+                                        required
+                                        style={{height:"20px"}}
+                                        />
+                                        <textarea className="home__input-box" placeholder='Title'
+                                        id="title"
+                                        autoComplete="off"
+                                        onChange={(e) => setPostData({...postData, title:e.target.value})}
+                                        value={postData.title}
+                                        required
+                                        style={{height:"20px"}}
+                                        />
+                                        <textarea className="home__input-box" placeholder='Description'
+                                        id="description"
+                                        autoComplete="off"
+                                        onChange={(e) => setPostData({...postData, description:e.target.value})}
+                                        value={postData.description}
+                                        required
+                                        />
+                                        <textarea className="home__input-box" placeholder='Media link'
+                                        id="description"
+                                        autoComplete="off"
+                                        onChange={(e) => setPostData({...postData, media:e.target.value})}
+                                        value={postData.media}
+                                        required
+                                        style={{height:"20px"}}
+                                        />
+                                
+                                        <button className="home__continue-button">Continue</button>
+                                        <div className="home__err-msg"></div>
+                                    </form>
+                                }
+                                {posts.map(post => {
+                                    return (
+                                        <div className="home__post" key={UID}>
+                                        <div className="home__post-profile">
+                                            <img className="home__post-profile-img" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"></img>
+                                            <div className="home__post-username">{post.username}</div>
+                                        </div>
+                                        <div className="home__post-title">{post.title}</div>
+                                        <div className="home__post-description">{post.description}</div>
+                                        <div className="home__post-img-container">
+                                            <img className="home__post-img" src={post.media}></img>
+                                        </div>
+                                        <div className="home__post-buttons-container">
+                                            <div className="home__post-button">{post.likes} {post.likes > 1 ? "Likes": post.likes > 0 ? "1 Like": "0 Likes"}</div>
+                                            <div className="home__post-button">Comment</div>
+                                            <div className="home__post-button">Share</div>
+                                            <div className="home__post-button">🎉 0</div>
+                                            <div className="home__post-button">💓 0 </div>
+                                            <div className="home__post-button">🤗 0</div>
+                                        </div>
+                                        <div className="home__post-comments">{post.comment ? post.comment.length : "0"} comments</div>
+                                        </div>
+                                    )
+                                })}
                                 <div className="home__post">
                                         <div className="home__post-profile">
                                             <img className="home__post-profile-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThDsB5AghscaCHlvtK1u4E1vjKgvGA7blOVVZK1iA&s"></img>

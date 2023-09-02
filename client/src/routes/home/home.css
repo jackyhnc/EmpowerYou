@@ -306,12 +306,84 @@
 
 }
 
+.home__networking-title-add-container {
+    display: flex;
+    position: relative;
+
+}
+
 .home__networking-title {
     font-size: 24px;
     font-weight: 600;
+    line-height: 1.6;
 
     max-width: 100px;
 }
+
+.home__add-button {
+    height:100%;
+    width:30px;
+
+    position: absolute;
+    right:0;
+}
+
+.home__add-post-container {
+    width:90%;
+    background-color: white;
+    border-radius: 15px;
+
+    box-sizing: border-box;
+    padding:50px 60px 50px 60px;
+
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+.home__input-box {
+    height:200px;
+    resize: none;
+
+    font-size: 16px;
+    font-family: Inter;
+    color:black;
+    font-weight: 500;
+
+    background-color: rgb(252, 249, 249);
+    padding: 16px;
+    
+    border-radius: 5px;
+    border-width: 0px;
+
+    transition: 0.2s ease;
+}
+.home__input-box:focus {
+    background-color: rgb(245, 243, 243);
+}
+
+.home__continue-button {
+    height:40px;
+    border-radius: 10px;
+    background: #f7d4d5;
+    color: #00013E;
+    font-weight: 600;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor:pointer;
+    transition: 0.2s ease;
+
+}
+.home__continue-button:hover {
+    background: #fdcfd1;
+}
+.home__continue-button:active {
+    background: #f3bfc1;
+}
+
 
 .home__posts-container {
     display: flex;
@@ -340,8 +412,8 @@
 }
 
 .home__post-profile-img {
-    width:50px;
-    height: 50px;
+    width:40px;
+    height: 40px;
     object-fit: cover;
     border-radius: 50px;
 }
